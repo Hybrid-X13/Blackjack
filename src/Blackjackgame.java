@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 import enums.BlackjackRules;
-import enums.CardValue;
 
 /**
  * @author Hybrid
