@@ -26,7 +26,14 @@ public class Dealer {
      * @return Check whether the player busts or not
      */
     public boolean bust() {
-        return hand.getScore() > BlackjackRules.BLACKJACK_VALUE ? true: false;
+        return hand.getScore() > BlackjackRules.BLACKJACK_VALUE;
+    }
+
+    /**
+     * @return Check if the hand is equal to the blackjack value
+     */
+    public boolean hasBlackjack() {
+        return hand.getScore() == BlackjackRules.BLACKJACK_VALUE;
     }
 
     /**

@@ -169,7 +169,7 @@ public class Blackjackgame {
         if (player.bust()) {
             System.out.println("Bust! You lose!");
         }
-        else if (player.getHand().getScore() == BlackjackRules.BLACKJACK_VALUE) {
+        else if (player.hasBlackjack()) {
             System.out.println("You got 21!");
         }
     }
@@ -233,7 +233,7 @@ public class Blackjackgame {
         int playerScore = player.getHand().getScore();
         int dealerScore = dealer.getHand().getScore();
 
-        if ((playerScore == BlackjackRules.BLACKJACK_VALUE && dealerScore < BlackjackRules.BLACKJACK_VALUE)
+        if ((player.hasBlackjack() && dealerScore < BlackjackRules.BLACKJACK_VALUE)
         || (dealerScore < BlackjackRules.DEALER_MIN_SCORE && dealerScore < playerScore))
         {
             dealerSelecton = 0;
@@ -250,7 +250,7 @@ public class Blackjackgame {
         int dealerScore = dealer.getHand().getScore();
         int betAmount = player.getBetAmount();
 
-        if (playerScore == BlackjackRules.BLACKJACK_VALUE && (dealerScore < playerScore || dealer.bust())) {
+        if (player.hasBlackjack() && (dealerScore < playerScore || dealer.bust())) {
             player.payout(2 * betAmount);
         }
         else if (playerScore < BlackjackRules.BLACKJACK_VALUE && (dealerScore < playerScore || dealer.bust())) {
